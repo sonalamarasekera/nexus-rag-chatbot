@@ -5,6 +5,7 @@ langchain-experimental
 pypdf
 python-docx
 langchain-huggingface
+langchain-ollama
 streamlit
 sentence-transformers
 torch --index-url https://download.pytorch.org/whl/cpu
