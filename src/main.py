@@ -1,7 +1,7 @@
 # Used to perfrom the RAG function to retrive data from the FAISS database and perform semantic search
-from langchain_huggingface_embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
-from langchain_ollama import Ollama
+from langchain_ollama import OllamaLLM
 
 from ingest import ingest_documents, FAISS_FOLDER
 
