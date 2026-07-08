@@ -13,7 +13,7 @@ def vector_db():
     return vectorDB
 
 def init_llm(model_name: str):
-    return Ollama(model=model_name)
+    return OllamaLLM(model=model_name)
 
 def get_answer(query: str, k: int = 4):
     data = vector_db()
