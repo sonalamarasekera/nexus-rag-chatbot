@@ -9,9 +9,12 @@ Users are able to ask questions from documents uploaded to the specified folder 
 ---
 
 ## Setting Up
-### Create a virtual environment
-### Clone Github repo and Download Ollama
-### Run ingest
-### Run UI
+### 1. Create a virtual environment
+### 2. Install dependencies
+### 3. Download Ollama and preferred model
+### 4. Build the FAISS index
+### 5. Run UI
+
+---
 
 ## Features
