@@ -6,7 +6,7 @@ It is built using **Langchain**, **HuggingFace Embeddings**, **FAISS**, **Ollama
 
 ---
 
-## Setting Up
+## Setting up the chatbot
 ### 1. Create a virtual environment
 ```bash
 # Creating virtual environment
@@ -34,8 +34,8 @@ brew install zstd
 # --- Linux ---
 sudo apt-get install zstd
 ```
-### 3. Build the FAISS index
-Place the documents (.pdf and .docx) inside the data folder on the main page, then run
+### 3. Build the FAISS index (Vector database)
+Place the documents (.pdf and .docx) inside the data folder on the main page, then run the following
 ```bash
 python -m src.ingest
 ```
@@ -54,7 +54,15 @@ ollama pull mistral
 ```
 
 ### 5. Run UI
-
+After all the above steps are successfully completed, run the following
+```bash
+streamlit run app.py
+```
+The chatbot will run on: http://localhost:8501 (or another available port that streamlit chooses)
 ---
-
-## Features
+Breakdown of the process:
+- Documents are loaded and the content is broken into chunks.
+- Each of these chunks are into embeddings and stored in the FAISS vector database
+- When user asks a question, FAISS retrieves relevant chunks
+- These chunks are passed as context to the LLM
+- The LLM genereates accurate answers based on the context
