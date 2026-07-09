@@ -59,6 +59,7 @@ After all the above steps are successfully completed, run the following
 streamlit run app.py
 ```
 The chatbot will run on: http://localhost:8501 (or another available port that streamlit chooses)
+
 ---
 Breakdown of the process:
 - Documents are loaded and the content is broken into chunks.
