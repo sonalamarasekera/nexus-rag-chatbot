@@ -5,17 +5,15 @@ from langchain_ollama import OllamaLLM
 
 from src.ingest import ingest_documents, FAISS_FOLDER
 
-ingest_documents()
-
 def vector_db():
     embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
     vectorDB = FAISS.load_local(str(FAISS_FOLDER), embeddings, allow_dangerous_deserialization=True)
     return vectorDB
 
-def init_llm(model_name: str):
-    return OllamaLLM(model=model_name)
+def init_llm(model:str):
+    return OllamaLLM(model=model)
 
-def get_answer(query: str, k: int = 4):
+def get_answer(query:str, model:str, k:int = 4):
     data = vector_db()
     
     retriever = data.as_retriever(search_kwargs={"k": k})
@@ -31,6 +29,6 @@ def get_answer(query: str, k: int = 4):
     Answer:
     '''
 
-    llm = init_llm("mistral")
+    llm = init_llm(model)
 
     return llm.invoke(system_prompt).strip()

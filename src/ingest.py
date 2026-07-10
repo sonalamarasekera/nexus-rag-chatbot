@@ -35,3 +35,6 @@ def ingest_documents():
     chunks = split_text()
     embeddings = embed_text()
     create_faiss_index(chunks, embeddings)
+
+if __name__ == "__main__":
+    ingest_documents()
